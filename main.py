@@ -5,14 +5,8 @@ import random
 import time
 import speech_recognition as sr
 from querydata import run_query, talk
-from googletrans import Translator
 import warnings
 warnings.filterwarnings('ignore')
-
-def getRussian(text):
-    translator = Translator()
-    result = translator.translate(text, src='en', dest='ru')
-    return result.text
 
 def wakeWord(text):
     wake_list = ['max', 'hi max', 'hey max', 'hello max', 'hola max']
@@ -24,7 +18,6 @@ def wakeWord(text):
 
 def start_function():
     talk("Hi, my name is Max. I am professor Nguyen's assistant.")
-    talk("How may I help you with chapter 5, temperature and heat, or related topics?")
     r = sr.Recognizer()
 
     with sr.Microphone() as source:                
